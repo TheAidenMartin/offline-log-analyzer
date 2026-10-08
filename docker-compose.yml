@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Tells the container to route LLM requests to the host machine's Ollama
+      - OLLAMA_HOST=http://host.docker.internal:11434 
+    volumes:
+      - .:/app
